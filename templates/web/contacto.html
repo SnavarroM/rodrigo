@@ -1,0 +1,104 @@
+{% extends 'base2.html' %}
+
+{% block title %}
+contacto
+{% endblock title %}
+
+{% block titulo %}
+Contáctenos
+{% endblock titulo %}
+
+{% block contacto %}
+<!-- Contact Start -->
+<div class="container-xxl contact py-5">
+    <div class="container">
+        <div class="section-title text-center mx-auto wow fadeInUp" data-wow-delay="0.1s" style="max-width: 500px;">
+            <p class="fs-5 fw-medium fst-italic text-primary">Contáctenos</p>
+            <h1 class="display-6">Si tiene alguna consulta, contáctenos</h1>
+        </div>
+
+        <div class="row g-5 mb-5">
+            <div class="col-md-4 text-center wow fadeInUp" data-wow-delay="0.3s">
+                <div class="btn-square mx-auto mb-3">
+                    <i class="fa fa-envelope fa-2x text-white"></i>
+                </div>
+                <p class="mb-2">contacto@2gboost.cl</p>
+                <p class="mb-0">rodrigo@2gboost.cl</p>
+            </div>
+
+            <!-- <div class="col-md-4 text-center wow fadeInUp" data-wow-delay="0.4s">
+                <div class="btn-square mx-auto mb-3">
+                    <i class="fa fa-phone fa-2x text-white"></i>
+                </div>
+                <p class="mb-2">+56 9 82337207</p>
+                <p class="mb-0">+012 345 67890</p>
+            </div> -->
+
+            <div class="col-md-4 text-center wow fadeInUp" data-wow-delay="0.4s">
+                <div class="btn-square mx-auto mb-3">
+                    <i class="fa fa-phone fa-2x text-white"></i>
+                </div>
+                <p class="mb-2">+56 9 82337207</p>
+            </div>
+
+            <div class="col-md-4 text-center wow fadeInUp" data-wow-delay="0.5s">
+                <div class="btn-square mx-auto mb-3">
+                    <i class="fa fa-map-marker-alt fa-2x text-white"></i>
+                </div>
+                <p class="mb-2">Santiago</p>
+                <p class="mb-0">Chile</p>
+            </div>
+        </div>
+
+        <div class="row g-5">
+            <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
+                <h3 class="mb-4">Envíenos su consulta</h3>
+                <!-- <p class="mb-4"><a href="https://htmlcodex.com/contact-form">Download Now</a>.</p> -->
+
+
+                <form>
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <div class="form-floating">
+                                <input type="text" class="form-control" id="name" placeholder="Your Name">
+                                <label for="name">Nombre</label>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-floating">
+                                <input type="email" class="form-control" id="email" placeholder="Your Email">
+                                <label for="email">Correo Electrónico</label>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="form-floating">
+                                <input type="text" class="form-control" id="subject" placeholder="Subject">
+                                <label for="subject">Asunto</label>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="form-floating">
+                                <textarea class="form-control" placeholder="Leave a message here" id="message" style="height: 120px"></textarea>
+                                <label for="message">Mensaje</label>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <button class="btn btn-primary rounded-pill py-3 px-5" type="submit">Enviar Mensaje</button>
+                        </div>
+                    </div>
+                </form>
+
+            </div>
+            <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.5s">
+                <div class="h-100">
+                    <iframe class="w-100 rounded"
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d22394.55558588207!2d-70.68650287722407!3d-33.450072356815106!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9662c5410425af2f%3A0x8475d53c400f0931!2sSantiago%2C%20Regi%C3%B3n%20Metropolitana!5e0!3m2!1ses!2scl!4v1687932558245!5m2!1ses!2scl" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+                    frameborder="0" style="height: 100%; min-height: 300px; border:0;" allowfullscreen="" aria-hidden="false" tabindex="0">
+                    </iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Contact End -->
+{% endblock contacto %}

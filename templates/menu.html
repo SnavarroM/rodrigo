@@ -1,0 +1,23 @@
+{% load static %}
+
+<div class="container-fluid bg-white sticky-top">
+    <div class="container">
+        <nav class="navbar navbar-expand-lg bg-white navbar-light py-2 py-lg-0">
+            <a href="index.html" class="navbar-brand">
+                <img class="img-fluid" src="{% static 'img/logo.png' %}" alt="Logo">
+            </a>
+            <button type="button" class="navbar-toggler ms-auto me-0" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <div class="navbar-nav ms-auto">
+                    <a href="{% url 'web:index' %}" class="nav-item nav-link {% if request.resolver_match.url_name == 'index' %}active{% endif %}">Inicio</a>
+                    <a href="{% url 'web:nosotros' %}" class="nav-item nav-link {% if request.resolver_match.url_name == 'nosotros' %}active{% endif %}">Nosotros</a>
+                    <a href="{% url 'web:servicios' %}" class="nav-item nav-link {% if request.resolver_match.url_name == 'servicios' %}active{% endif %}">Servicios</a>
+                    <a href="{% url 'web:contacto' %}" class="nav-item nav-link {% if request.resolver_match.url_name == 'contacto' %}active{% endif %}">Contacto</a>
+                </div>
+            </div>
+        </nav>
+    </div>
+</div>
+
