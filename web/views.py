@@ -4,6 +4,10 @@ from django.views.generic import TemplateView, ListView
 from .models import Nosotros, Logo
 from .forms import ContactForm
 from django.core.mail import EmailMessage
+from django.core.mail import send_mail
+
+import logging
+logger = logging.getLogger(__name__)
 
 
 class IndexTempleView(TemplateView):
@@ -12,7 +16,7 @@ class IndexTempleView(TemplateView):
 
 # class ContactoTemplateView(TemplateView):
 #     template_name = "web/contacto.html"
-    
+
 
 class NosotrosListView(ListView):
     model = Nosotros
@@ -23,8 +27,8 @@ class NosotrosListView(ListView):
 
 class ServiciosTempleView(TemplateView):
     template_name = "web/servicios.html"
-    
-    
+
+
 class LogoTemplateView(TemplateView):
     model = Logo
     context_object_name = 'logo'
@@ -34,43 +38,28 @@ class LogoTemplateView(TemplateView):
         context = super().get_context_data(**kwargs)
         context['logo'] = Logo.objects.first()
         return context
-    
 
-# class ContactFormView(FormView):
-#     template_name = "web/contacto.html"
-#     form_class = ContactForm
 
-# def contacto(request):
-#     return render (request,'formulario.html')
 
+
+#!_________________________________________________________________________________________________
 
 def contacto(request):
-    contact_form = ContactForm()
-    
     if request.method == 'POST':
-        #? estoy enviando los datos desde un formulario
-        contact_form = ContactForm(data=request.POST) 
-        #? estoy llenado el contact_form de la info del formulario
-        
-        if contact_form.is_valid(): #? compruebo si esta bien llenado
-            
-            name = request.POST.get('name', '') #? capturo cada uno de los datos
-            email = request.POST.get('email', '')
-            subject = request.POST.get('subject', '')
-            message = request.POST.get('message', '')
-            
-            #Todo Enviamos el Email
-            email = EmailMessage(
-               subject,
-                "Mensaje enviado por {} <{}>:\n\n{}".format(name,email,message),
-                email,
-                ["5a9dfd49a5359e@inbox.mailtrap.io"],                
-                reply_to=[email],                
+        form = ContactForm(request.POST)
+        if form.is_valid():
+            name = form.cleaned_data['name']
+            email = form.cleaned_data['email']
+            message = form.cleaned_data['message']
+            send_mail(
+                'Nuevo mensaje del formulario de contacto',
+                f'Name: {name}\nEmail: {email}\nMessage: {message}',
+                'contacto@2gboost.cl',
+                ['contacto@2gboost.cl'],
+                fail_silently=False,
             )
-            
-            try:
-                email.send()            
-                return redirect('/contacto/?ok') #? esta todo ok
-            except:
-                return redirect('/contacto/?error') #? Ocurrio un error
-    return render(request, 'web/contacto.html',{'form':contact_form})
+            # return render(request, 'contact_success.html')
+            return redirect('/contacto/?error')
+    else:
+        form = ContactForm()
+    return render(request, 'web/contacto.html', {'form': form})

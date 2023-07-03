@@ -137,7 +137,23 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 
 # email
-EMAIL_HOST = 'sandbox.smtp.mailtrap.io'
-EMAIL_HOST_USER = '5a9dfd49a5359e'
-EMAIL_HOST_PASSWORD = '569dab40153566'
-EMAIL_PORT = '2525'
+# EMAIL_HOST = 'sandbox.smtp.mailtrap.io'
+# EMAIL_HOST_USER = '5a9dfd49a5359e'
+# EMAIL_HOST_PASSWORD = '569dab40153566'
+# EMAIL_PORT = '2525'
+
+# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+# EMAIL_HOST = 's370.v2n.cl'
+# EMAIL_PORT = 465
+# EMAIL_USE_TLS = True
+# EMAIL_HOST_USER = 'contacto@2gboost.cl'
+# EMAIL_HOST_PASSWORD = 'gaune@2023'
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 's370.v2n.cl'
+EMAIL_PORT = 465
+EMAIL_USE_SSL = True
+EMAIL_HOST_USER = 'contacto@2gboost.cl'
+EMAIL_HOST_PASSWORD = 'gaune@2023'
+
+

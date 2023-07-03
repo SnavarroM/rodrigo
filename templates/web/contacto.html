@@ -54,10 +54,10 @@ Contáctenos
             <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
                 <h3 class="mb-4">Envíenos su consulta</h3>
                 <!-- <p class="mb-4"><a href="https://htmlcodex.com/contact-form">Download Now</a>.</p> -->
-                
+
                 <form action="" method="POST">
-                    {% csrf_token %}                    
-                
+                    {% csrf_token %}
+
                     <div class="row g-3">
                         <div class="col-md-12">
                             <div class="form-floating">
@@ -94,22 +94,11 @@ Contáctenos
                         <div class="col-12">
                             <button class="btn btn-primary rounded-pill py-3 px-5" type="submit" {% if 'ok' in request.GET %}disable{% endif %}>Enviar Mensaje </button>
                         </div>
-                    </div>  
-                </form> 
-               
-                <hr>
-                    {% comment %} {{ request.POST }} {% endcomment %}
-                    {% if 'ok' in request.GET %}
-                        <div class="alert alert-success mt-5" role="alert">
-                            <strong>El Mensaje se ha enviado Correctamente</strong>
-                        </div>                    
-                    {% endif %}
+                    </div>
+                </form>
 
-                    {% if 'error' in request.GET %}
-                        <div class="alert alert-danger mt-5" role="alert">
-                            <strong>El Mensaje no ha podido ser enviado por favor intentelo mas tarde</strong>
-                        </div>                    
-                    {% endif %}
+                <hr>
+
             </div>
             <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.5s">
                 <div class="h-100">
