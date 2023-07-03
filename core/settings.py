@@ -39,7 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
 # mis propias app
-    'web'
+    'web',
 ]
 
 MIDDLEWARE = [
@@ -134,3 +134,10 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 #!Archivos media
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+
+# email
+EMAIL_HOST = 'sandbox.smtp.mailtrap.io'
+EMAIL_HOST_USER = '5a9dfd49a5359e'
+EMAIL_HOST_PASSWORD = '569dab40153566'
+EMAIL_PORT = '2525'

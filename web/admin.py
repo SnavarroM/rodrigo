@@ -1,13 +1,16 @@
 from django.contrib import admin
 
-from .models import Nosotros_Derecha,Nosotros_Izquierda
+from .models import Nosotros, Logo
 
-class Nosotros_DerechaAdmin(admin.ModelAdmin):
+class NosotrosAdmin(admin.ModelAdmin):
     readonly_fields = ('created', 'updated')
 
-class Nosotros_IzquierdaAdmin(admin.ModelAdmin):
+
+admin.site.register(Nosotros, NosotrosAdmin)
+
+class LogoAdmin(admin.ModelAdmin):
     readonly_fields = ('created', 'updated')
 
-admin.site.register(Nosotros_Derecha, Nosotros_DerechaAdmin)
 
-admin.site.register(Nosotros_Izquierda, Nosotros_IzquierdaAdmin)
+admin.site.register(Logo, LogoAdmin)
+
